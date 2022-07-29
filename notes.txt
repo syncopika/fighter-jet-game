@@ -1,0 +1,7 @@
+helpful resources:
+
+How To Create An Explosion Effect In Unity
+https://www.youtube.com/watch?v=cvQiQglPI18
+
+Control particle effects by script in Unity! Jet engine VFX Tutorial
+https://www.youtube.com/watch?v=GYQu3HrbRGo

@@ -12,6 +12,7 @@ public class PlaneController : MonoBehaviour
 
     // armament
     public GameObject missile1;
+    public GameObject missile2;
 
     // Start is called before the first frame update
     void Start()
@@ -92,10 +93,19 @@ public class PlaneController : MonoBehaviour
             skinnedMeshRend.SetBlendShapeWeight(0, blendOneVal);
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             // fire missile
-            missile1.GetComponent<MissileController>().fire();
+            if (missile1) {
+                missile1.GetComponent<MissileController>().fire();
+                missile1 = null;
+                //Debug.Log("fired missile1");
+            } else if (missile2)
+            {
+                missile2.GetComponent<MissileController>().fire();
+                missile2 = null;
+                //Debug.Log("fired missile2");
+            }
         }
 
         Vector3 fwd = transform.forward * 10;
