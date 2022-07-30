@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7013390214405554027}
   - component: {fileID: 3490700300684553663}
   m_Layer: 0
-  m_Name: Engine
+  m_Name: EngineSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

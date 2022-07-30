@@ -1,0 +1,16 @@
+- enemy AI logic
+  - follow path to face enemy + fire missile at player
+  - realistic banking/turning?
+
+- multiple enemies
+
+- need a menu screen scene
+  - a couple different maps
+    - one with buildings? skyscrapers?
+    - different weather
+  - more skins for aircraft, allow player to toggle between them?
+
+- more armament choices in addition to missiles
+
+- variable speed when flying
+  - afterburners?

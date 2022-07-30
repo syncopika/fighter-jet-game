@@ -20,7 +20,17 @@ public class CameraController : MonoBehaviour
         // https://forum.unity.com/threads/camera-to-stay-behind-an-aircraft.42508/
         // https://answers.unity.com/questions/811809/aircraft-following-camera.html
         Vector3 targetPos = toFollow.transform.position + new Vector3(0, 0.8f, 0);
-        transform.position = Vector3.Lerp(transform.position, targetPos - toFollow.transform.forward * 5f, 5f * Time.deltaTime);
+
+        // change camera view
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos + toFollow.transform.forward * 7f, 5f * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos - toFollow.transform.forward * 5f, 5f * Time.deltaTime);
+        }
+        
         transform.rotation = Quaternion.Lerp(transform.rotation, toFollow.transform.rotation, 5f * Time.deltaTime);
 
         transform.LookAt(toFollow.transform);
