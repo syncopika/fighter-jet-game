@@ -5,19 +5,27 @@ using UnityEngine;
 public class MissileController : MonoBehaviour
 {
 
-    GameObject target;
+    Transform target;
+
+    public GameObject smoke;
     private bool isFired = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        smoke.GetComponent<ParticleSystem>().Pause();
     }
     
     public void fire()
     {
         isFired = true;
         transform.parent = null;
+        smoke.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void setTarget(Transform tgt)
+    {
+        target = tgt;
     }
 
     // Update is called once per frame
@@ -29,6 +37,7 @@ public class MissileController : MonoBehaviour
         // TODO: make sure target exists and follow target
         if (isFired)
         {
+            // TODO: follow target
             transform.position += transform.forward.normalized * 0.05f;
         }
     }

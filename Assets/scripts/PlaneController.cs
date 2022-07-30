@@ -8,7 +8,10 @@ public class PlaneController : MonoBehaviour
 
     float speed = 15f;
     float blendOneVal = 0f;
+
     bool sweptWing = false; // this is specific only to the F-14
+    bool targetAcquired = false;
+    Transform target;
 
     // armament
     public GameObject missile1;
@@ -93,21 +96,46 @@ public class PlaneController : MonoBehaviour
             skinnedMeshRend.SetBlendShapeWeight(0, blendOneVal);
         }
 
+        // do a spherecast to detect enemies
+        // https://docs.unity3d.com/ScriptReference/Physics.SphereCast.html
+        RaycastHit hit;
+        float radius = 3f;
+        Vector3 pos = transform.position;
+
+        if(Physics.SphereCast(pos, radius, transform.forward, out hit, 90))
+        {
+            if (hit.transform.name.Equals("f5tiger"))
+            {
+                hit.transform.GetComponent<EnemyController>().targeted();
+                targetAcquired = true;
+                target = hit.transform;
+            }
+        }
+
+        // use keydown to avoid capturing the key more than once with one press
         if (Input.GetKeyDown(KeyCode.F))
         {
             // fire missile
             if (missile1) {
                 missile1.GetComponent<MissileController>().fire();
+
+                if (targetAcquired)
+                {
+                    // set missile to target
+                    missile1.GetComponent<MissileController>().setTarget(target);
+                }
+
                 missile1 = null;
-                //Debug.Log("fired missile1");
+
             } else if (missile2)
             {
                 missile2.GetComponent<MissileController>().fire();
                 missile2 = null;
-                //Debug.Log("fired missile2");
             }
         }
 
+        target = null;
+        targetAcquired = false;
         Vector3 fwd = transform.forward * 10;
         Debug.DrawRay(transform.position, fwd, Color.green);
     }
