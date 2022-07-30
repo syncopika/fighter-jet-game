@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         // show explosion
         explosion.GetComponent<ParticleSystem>().Play();
-        isDead = true;
+        isDead = true; // TODO: delete model from scene
     }
 
     public void targeted()

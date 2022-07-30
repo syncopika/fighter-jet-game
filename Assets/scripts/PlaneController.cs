@@ -96,7 +96,7 @@ public class PlaneController : MonoBehaviour
             skinnedMeshRend.SetBlendShapeWeight(0, blendOneVal);
         }
 
-        // do a spherecast to detect enemies
+        // do a spherecast to detect enemies ahead
         // https://docs.unity3d.com/ScriptReference/Physics.SphereCast.html
         RaycastHit hit;
         float radius = 3f;
@@ -130,6 +130,13 @@ public class PlaneController : MonoBehaviour
             } else if (missile2)
             {
                 missile2.GetComponent<MissileController>().fire();
+
+                if (targetAcquired)
+                {
+                    // set missile to target
+                    missile2.GetComponent<MissileController>().setTarget(target);
+                }
+
                 missile2 = null;
             }
         }

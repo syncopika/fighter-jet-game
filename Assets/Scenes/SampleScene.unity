@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 413be3d103a20914d86fe30f806eb5ce,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ccce41053cf0734da1399094a253be6, type: 2}
     - target: {fileID: 919132149155446097, guid: 413be3d103a20914d86fe30f806eb5ce,
         type: 3}
       propertyPath: m_Name
@@ -205,7 +210,7 @@ GameObject:
   - component: {fileID: 137429721}
   - component: {fileID: 137429720}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 137429719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4190307, y: -20.324278, z: 58.799644}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -317,7 +322,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1579,6 +1584,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 15.485218
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 437d945242578ca4387fccaae73ae002, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c38532baa3ec7744bcf18221d3c75e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 437d945242578ca4387fccaae73ae002, type: 3}
 --- !u!1001 &1888184429
