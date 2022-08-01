@@ -735,7 +735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 366234045}
-  targetedMaterial: {fileID: 2100000, guid: 400b8c61be3bec54d8b78db0fa047757, type: 2}
+  target: {fileID: 535732620}
+  isTargetedMaterial: {fileID: 0}
 --- !u!65 &504882365
 BoxCollider:
   m_ObjectHideFlags: 0

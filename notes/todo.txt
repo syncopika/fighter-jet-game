@@ -2,6 +2,8 @@
   - follow path to face enemy + fire missile at player
   - realistic banking/turning?
 
+- exploding enemy animation on destroy?
+
 - multiple enemies
 
 - need a menu screen scene
