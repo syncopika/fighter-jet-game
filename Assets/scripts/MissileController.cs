@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MissileController : MonoBehaviour
 {
-
     Transform target;
 
     public GameObject smoke;
@@ -35,7 +34,10 @@ public class MissileController : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, 2))
         {
-            hit.transform.GetComponent<EnemyController>().die();
+            if (hit.transform && hit.transform.GetComponent<EnemyController>())
+            {
+                hit.transform.GetComponent<EnemyController>().die();
+            }
             target = null;
             isDead = true; // TODO: just delete model from scene
         }
@@ -49,7 +51,7 @@ public class MissileController : MonoBehaviour
 
         if (isFired && !isDead)
         {
-            transform.position += transform.forward.normalized * 0.05f;
+            transform.position += transform.forward * 0.2f;
 
             // modify rotation so it constantly faces target
             if (target)
@@ -57,7 +59,7 @@ public class MissileController : MonoBehaviour
                 // https://answers.unity.com/questions/1663326/smoothly-rotate-object-towards-target-object.html
                 Vector3 fromTarget = (target.position - transform.position).normalized;
                 Quaternion targetRotation = Quaternion.LookRotation(fromTarget);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 3f * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 12f * Time.deltaTime);
 
                 checkCollision();
             }

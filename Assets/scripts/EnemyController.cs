@@ -35,12 +35,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!isDead)
-        {
-            transform.position += transform.forward * 12f * Time.deltaTime;
-        }*/
-
         if (isTargeted)
         {
             transform.GetComponent<MeshRenderer>().material = isTargetedMaterial;
@@ -53,23 +47,27 @@ public class EnemyController : MonoBehaviour
         if (target && !isDead)
         {
             // logic to move to attack target
-
-            // find where the target is
-
-            /* possible conditions to consider? (if the action may be different in each):
-               - if target is above
-               - if target is below
-               - if target is at about the same altitude
-            */
-
             Vector3 fromTarget = (target.transform.position - transform.position).normalized;
 
             Quaternion targetRotation = Quaternion.LookRotation(fromTarget);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 15f * Time.deltaTime);
+            // TODO: try rotating about z axis if turning left or right to produce a more realistic visual
+            // helpful? https://answers.unity.com/questions/315723/flight-movement-with-banking.html
+            float bankAmount = 30f * Vector3.Dot(transform.up, fromTarget); // use up here b/c up is actually the vector along the x-axis
+            
+            Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 15f * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, 15f * Time.deltaTime);
+
+            transform.rotation *= Quaternion.AngleAxis(bankAmount, Vector3.forward); // rotate about the forward axis
+
             transform.position += transform.forward * 12f * Time.deltaTime;
         }
 
         isTargeted = false;
+
+        Vector3 fwd = transform.forward * 10;
+        Debug.DrawRay(transform.position, fwd, Color.green);
+        Debug.DrawRay(transform.position, transform.up * 10, Color.green);
+        Debug.DrawRay(transform.position, transform.right * 10, Color.blue);
     }
 }

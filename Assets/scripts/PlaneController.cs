@@ -16,6 +16,7 @@ public class PlaneController : MonoBehaviour
     // armament
     public GameObject missile1;
     public GameObject missile2;
+    public GameObject bomb1;
 
     // Start is called before the first frame update
     void Start()
@@ -37,37 +38,37 @@ public class PlaneController : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             // rotate right about the Z axis
-            transform.Rotate(new Vector3(0, 0, -1) * 60 * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, -1) * 75 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
             // rotate left about the Z axis
-            transform.Rotate(new Vector3(0, 0, 1) * 60 * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, 1) * 75 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             // move left
-            transform.Rotate(Vector3.left * 20 * Time.deltaTime);
+            transform.Rotate(Vector3.left * 25 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             // move right
-            transform.Rotate(Vector3.right * 20 * Time.deltaTime);
+            transform.Rotate(Vector3.right * 25 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             // move up
-            transform.Rotate(Vector3.up * 20 * Time.deltaTime);
+            transform.Rotate(Vector3.up * 25 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             // move down
-            transform.Rotate(-Vector3.up * 20 * Time.deltaTime);
+            transform.Rotate(-Vector3.up * 25 * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -99,12 +100,12 @@ public class PlaneController : MonoBehaviour
         // do a spherecast to detect enemies ahead
         // https://docs.unity3d.com/ScriptReference/Physics.SphereCast.html
         RaycastHit hit;
-        float radius = 3f;
+        float radius = 6f;
         Vector3 pos = transform.position;
 
-        if(Physics.SphereCast(pos, radius, transform.forward, out hit, 90))
+        if(Physics.SphereCast(pos, radius, transform.forward, out hit, 120f))
         {
-            if (hit.transform.name.Equals("f5tiger"))
+            if (hit.transform.name.Contains("f5tiger"))
             {
                 hit.transform.GetComponent<EnemyController>().targeted();
                 targetAcquired = true;
@@ -138,6 +139,15 @@ public class PlaneController : MonoBehaviour
                 }
 
                 missile2 = null;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (bomb1)
+            {
+                bomb1.GetComponent<BombController>().fire();
+                bomb1 = null;
             }
         }
 

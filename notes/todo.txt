@@ -1,6 +1,7 @@
 - enemy AI logic
-  - follow path to face enemy + fire missile at player
-  - realistic banking/turning?
+  - realistic banking/turning? - kinda got something working I think
+  - enemy avoidance/prevent enemies from colliding with each other?
+  - fire missile when player in range
 
 - exploding enemy animation on destroy?
 
