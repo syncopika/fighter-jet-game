@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         // change camera view
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos + toFollow.transform.forward * 7f, 5f * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPos + toFollow.transform.forward * 7.2f, 5f * Time.deltaTime);
         }
         else
         {

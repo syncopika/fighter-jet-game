@@ -4,16 +4,18 @@
   - fire missile when player in range
 
 - exploding enemy animation on destroy?
+  - also for player?
 
 - multiple enemies
 
-- need a menu screen scene
+- need a selection screen scene
   - a couple different maps
     - one with buildings? skyscrapers?
     - different weather
   - more skins for aircraft, allow player to toggle between them?
 
 - more armament choices in addition to missiles
+  - bullets
 
 - variable speed when flying
   - afterburners?

@@ -6,7 +6,12 @@ https://www.youtube.com/watch?v=cvQiQglPI18
 Control particle effects by script in Unity! Jet engine VFX Tutorial
 https://www.youtube.com/watch?v=GYQu3HrbRGo
 
+Character Selection (And changing scene) - Unity 3D[Tutorial][C#]
+https://www.youtube.com/watch?v=IFTjcPvCZaM
+
 https://www.grc.nasa.gov/www/k-12/airplane/airplane.html
 https://stackoverflow.com/questions/47927349/unity3d-how-to-have-continuous-particle-emission
 https://forum.unity.com/threads/flight-combat-ai-raycast-avoidance-techniques-or-pathfinding.437121/
 https://www.reddit.com/r/Unity3D/comments/e2owdp/flying_pathfinding/
+
+https://blog.insane.engineer/post/unity_button_load_scene/
