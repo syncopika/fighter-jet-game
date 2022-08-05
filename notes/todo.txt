@@ -6,8 +6,6 @@
 - exploding enemy animation on destroy?
   - also for player?
 
-- multiple enemies
-
 - need a selection screen scene
   - a couple different maps
     - one with buildings? skyscrapers?

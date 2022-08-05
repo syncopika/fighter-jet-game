@@ -7,11 +7,6 @@ public class BombController : MonoBehaviour
     public GameObject bombObject;
     public ParticleSystem explosion;
 
-    //Transform target;
-
-    private bool isDead = false;
-    private bool isFired = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +18,11 @@ public class BombController : MonoBehaviour
     public void fire()
     {
         Rigidbody rb = bombObject.AddComponent<Rigidbody>();
-        rb.mass = 100;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.mass = 70;
 
-        isFired = true;
+        bombObject.AddComponent<BoxCollider>();
+
         transform.parent = null;
     }
 
@@ -33,28 +30,39 @@ public class BombController : MonoBehaviour
     {
     }
 
-    void checkCollision()
+    void OnCollisionEnter(Collision collision)
     {
-        RaycastHit hit;
-
-        // TODO: if plane is inverted or rotated, transform.up is flipped! need to handle that properly
-        if (isFired && Physics.Raycast(bombObject.transform.position, -transform.up, out hit, 1f))
+        if(collision.transform.name.Equals("ground") || collision.transform.name.Contains("Cube"))
         {
-            // explosion
-            explosion.GetComponent<ParticleSystem>().Play();
-
-            //target = null;
-            isDead = true; // TODO: just delete model from scene
-
-            Destroy(bombObject.GetComponent<Rigidbody>());
+            explode();
         }
+    }
+
+    void explode()
+    {
+        // explosion
+        explosion.GetComponent<ParticleSystem>().Play();
+
+        float radius = 15f;
+        float force = 800f;
+        float upwardsModifier = 6f;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider c in colliders)
+        {
+            Rigidbody rb = c.GetComponent<Rigidbody>();
+
+            if (rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
+        }
+
+        // TODO: just delete model from scene
+
+        Destroy(bombObject.GetComponent<Rigidbody>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isDead) checkCollision();
-
         Vector3 fwd = -transform.up * 10;
         Debug.DrawRay(transform.position, fwd, Color.green);
     }

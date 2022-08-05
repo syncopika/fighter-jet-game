@@ -37,9 +37,25 @@ public class MissileController : MonoBehaviour
             if (hit.transform && hit.transform.GetComponent<EnemyController>())
             {
                 hit.transform.GetComponent<EnemyController>().die();
+                target = null;
+                isDead = true; // TODO: just delete model from scene
+            } else if (hit.transform)
+            {
+                float radius = 10f;
+                float force = 500f;
+                float upwardsModifier = 2f;
+
+                Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+                foreach (Collider c in colliders)
+                {
+                    Rigidbody rb = c.GetComponent<Rigidbody>();
+
+                    if (rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
+                }
+
+                isDead = true;
             }
-            target = null;
-            isDead = true; // TODO: just delete model from scene
+
         }
     }
 
@@ -60,9 +76,9 @@ public class MissileController : MonoBehaviour
                 Vector3 fromTarget = (target.position - transform.position).normalized;
                 Quaternion targetRotation = Quaternion.LookRotation(fromTarget);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 12f * Time.deltaTime);
-
-                checkCollision();
             }
+
+            checkCollision();
         }
     }
 }

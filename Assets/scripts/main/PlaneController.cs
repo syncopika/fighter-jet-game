@@ -11,6 +11,9 @@ public class PlaneController : MonoBehaviour
 
     bool sweptWing = false; // this is specific only to the F-14
     bool targetAcquired = false;
+    bool isFlying = true;
+    bool isDead = false;
+
     Transform target;
 
     // armament
@@ -24,15 +27,38 @@ public class PlaneController : MonoBehaviour
         skinnedMeshRend = GetComponent<SkinnedMeshRenderer>();
     }
 
+    void explode()
+    {
+        // TODO - explosion effects? display game over message?
+        //Debug.Log("im dead");
+        isDead = true;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name.Equals("ground") || 
+            collision.transform.name.Contains("Cube") ||
+            collision.transform.name.Contains("f5"))
+        {
+            explode();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         // https://www.grc.nasa.gov/www/k-12/airplane/airplane.html
 
+        if (isDead)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             // move forward
             transform.position += transform.forward * speed * Time.deltaTime;
+            isFlying = true;
         }
 
         if (Input.GetKey(KeyCode.E))
@@ -149,6 +175,14 @@ public class PlaneController : MonoBehaviour
                 bomb1.GetComponent<BombController>().fire();
                 bomb1 = null;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) || !isFlying)
+        {
+            // plane has stopped moving so it should fall
+            isFlying = false;
+            transform.position -= Vector3.up * 20f * Time.deltaTime;
+            transform.Rotate(new Vector3(-0.1f, Random.Range(0.1f, 0.15f), 0.1f));
         }
 
         target = null;
