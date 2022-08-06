@@ -17,6 +17,12 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (toFollow.transform.GetComponent<PlaneController>().isDeadYet())
+        {
+            transform.LookAt(toFollow.transform);
+            return;
+        }
+
         // https://forum.unity.com/threads/camera-to-stay-behind-an-aircraft.42508/
         // https://answers.unity.com/questions/811809/aircraft-following-camera.html
         Vector3 targetPos = toFollow.transform.position + new Vector3(0, 0.8f, 0);

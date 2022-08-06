@@ -52,7 +52,7 @@ public class BombController : MonoBehaviour
         {
             Rigidbody rb = c.GetComponent<Rigidbody>();
 
-            if (rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
+            if (!c.transform.name.Contains("f14") && rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
         }
 
         // TODO: just delete model from scene

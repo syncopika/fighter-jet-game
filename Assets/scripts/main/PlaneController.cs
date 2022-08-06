@@ -21,10 +21,22 @@ public class PlaneController : MonoBehaviour
     public GameObject missile2;
     public GameObject bomb1;
 
+    public bool isDeadYet()
+    {
+        return isDead;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         skinnedMeshRend = GetComponent<SkinnedMeshRenderer>();
+
+        // get skin from GameManager and apply it
+        Material selectedSkin = GameObject.Find("GameManager").transform.GetComponent<GameManager>().getPlayerSkin();
+        if (selectedSkin)
+        {
+            skinnedMeshRend.material = selectedSkin;
+        }
     }
 
     void explode()
@@ -47,8 +59,6 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // https://www.grc.nasa.gov/www/k-12/airplane/airplane.html
-
         if (isDead)
         {
             return;

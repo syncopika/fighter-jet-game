@@ -10,9 +10,8 @@
   - a couple different maps
     - one with buildings? skyscrapers?
     - different weather
-  - more skins for aircraft, allow player to toggle between them?
 
-- more armament choices in addition to missiles
+- more armament choices in addition to missiles, bombs
   - bullets
 
 - variable speed when flying
