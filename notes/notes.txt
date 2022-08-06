@@ -15,3 +15,4 @@ https://forum.unity.com/threads/flight-combat-ai-raycast-avoidance-techniques-or
 https://www.reddit.com/r/Unity3D/comments/e2owdp/flying_pathfinding/
 
 https://blog.insane.engineer/post/unity_button_load_scene/
+https://stackoverflow.com/questions/32306704/how-to-pass-data-and-references-between-scenes-in-unity
