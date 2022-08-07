@@ -61,7 +61,7 @@ public class BombController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 fwd = -transform.up * 10;
+        Vector3 fwd = -transform.up * 20 * Time.deltaTime;
         Debug.DrawRay(transform.position, fwd, Color.green);
     }
 }
