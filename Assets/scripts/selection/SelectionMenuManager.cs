@@ -50,7 +50,8 @@ public class SelectionMenuManager : MonoBehaviour
         }
 
         // pass to GameManager
-        GameObject.Find("GameManager").transform.GetComponent<GameManager>().setPlayerSkin(currSelectedAircraftSkin);
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager) gameManager.transform.GetComponent<GameManager>().setPlayerSkin(currSelectedAircraftSkin);
         
         // assuming 1 renderer
         selectedAircraft.GetComponents<Renderer>()[0].material = currSelectedAircraftSkin;

@@ -9,6 +9,9 @@ https://www.youtube.com/watch?v=GYQu3HrbRGo
 Character Selection (And changing scene) - Unity 3D[Tutorial][C#]
 https://www.youtube.com/watch?v=IFTjcPvCZaM
 
+4 Methods For LowPoly Terrain (in Blender 2.8)
+https://www.youtube.com/watch?v=Xh9aiMZbQZU
+
 https://www.grc.nasa.gov/www/k-12/airplane/airplane.html
 https://stackoverflow.com/questions/47927349/unity3d-how-to-have-continuous-particle-emission
 https://forum.unity.com/threads/flight-combat-ai-raycast-avoidance-techniques-or-pathfinding.437121/
@@ -16,3 +19,6 @@ https://www.reddit.com/r/Unity3D/comments/e2owdp/flying_pathfinding/
 
 https://blog.insane.engineer/post/unity_button_load_scene/
 https://stackoverflow.com/questions/32306704/how-to-pass-data-and-references-between-scenes-in-unity
+
+
+- make sure "pixel perfect" checkbox is checked for Canvas elements to make UI text crisp
