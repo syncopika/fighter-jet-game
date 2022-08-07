@@ -38,7 +38,8 @@ public class MissileController : MonoBehaviour
             {
                 hit.transform.GetComponent<EnemyController>().die();
                 target = null;
-                isDead = true; // TODO: just delete model from scene
+                isDead = true;
+                Destroy(this.gameObject);
             } else if (hit.transform)
             {
                 float radius = 10f;
@@ -54,6 +55,7 @@ public class MissileController : MonoBehaviour
                 }
 
                 isDead = true;
+                Destroy(this.gameObject);
             }
 
         }

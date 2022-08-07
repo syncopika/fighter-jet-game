@@ -55,9 +55,7 @@ public class BombController : MonoBehaviour
             if (!c.transform.name.Contains("f14") && rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
         }
 
-        // TODO: just delete model from scene
-
-        Destroy(bombObject.GetComponent<Rigidbody>());
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

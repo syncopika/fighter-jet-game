@@ -10,4 +10,13 @@ public class ChangeSceneButton : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadSceneFromGameManager()
+    {
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager)
+        {
+            SceneManager.LoadScene(gameManager.transform.GetComponent<GameManager>().getSelectedMap());
+        }
+    }
 }

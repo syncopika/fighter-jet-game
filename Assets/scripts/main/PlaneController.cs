@@ -32,17 +32,20 @@ public class PlaneController : MonoBehaviour
         skinnedMeshRend = GetComponent<SkinnedMeshRenderer>();
 
         // get skin from GameManager and apply it
-        Material selectedSkin = GameObject.Find("GameManager").transform.GetComponent<GameManager>().getPlayerSkin();
-        if (selectedSkin)
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager)
         {
-            skinnedMeshRend.material = selectedSkin;
+            Material selectedSkin = gameManager.transform.GetComponent<GameManager>().getPlayerSkin();
+            if (selectedSkin)
+            {
+                skinnedMeshRend.material = selectedSkin;
+            }
         }
     }
 
     void explode()
     {
         // TODO - explosion effects? display game over message?
-        //Debug.Log("im dead");
         isDead = true;
     }
 
