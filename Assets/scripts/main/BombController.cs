@@ -41,6 +41,7 @@ public class BombController : MonoBehaviour
     void explode()
     {
         // explosion
+        Destroy(this.gameObject, explosion.GetComponent<ParticleSystem>().main.duration);
         explosion.GetComponent<ParticleSystem>().Play();
 
         float radius = 15f;
@@ -54,8 +55,6 @@ public class BombController : MonoBehaviour
 
             if (!c.transform.name.Contains("f14") && rb) rb.AddExplosionForce(force, transform.position, radius, upwardsModifier);
         }
-
-        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

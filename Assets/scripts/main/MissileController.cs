@@ -69,7 +69,7 @@ public class MissileController : MonoBehaviour
 
         if (isFired && !isDead)
         {
-            transform.position += transform.forward * 40f * Time.deltaTime;
+            transform.position += transform.forward * 50f * Time.deltaTime;
 
             // modify rotation so it constantly faces target
             if (target)
