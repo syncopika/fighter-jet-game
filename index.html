@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | fighter-jet-game</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="demo/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="demo/TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -55,12 +55,12 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/fighter-jet-game build.loader.js";
+      var buildUrl = "demo/Build";
+      var loaderUrl = buildUrl + "/fighter-jet-game-build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/fighter-jet-game build.data",
-        frameworkUrl: buildUrl + "/fighter-jet-game build.framework.js",
-        codeUrl: buildUrl + "/fighter-jet-game build.wasm",
+        dataUrl: buildUrl + "/fighter-jet-game-build.data",
+        frameworkUrl: buildUrl + "/fighter-jet-game-build.framework.js",
+        codeUrl: buildUrl + "/fighter-jet-game-build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "fighter-jet-game",
