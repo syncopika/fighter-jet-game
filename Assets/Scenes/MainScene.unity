@@ -1291,6 +1291,9 @@ MonoBehaviour:
   missile1: {fileID: 505777654}
   missile2: {fileID: 758463375}
   bomb1: {fileID: 722546773}
+  bulletEmitter: {fileID: 2123420934}
+  bulletPrefab: {fileID: 3303823266379146929, guid: bb9ffc3134437a74fba216c8ecd4f767,
+    type: 3}
 --- !u!4 &535732624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 437d945242578ca4387fccaae73ae002,
@@ -3819,3 +3822,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1795643991}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2123420934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123420935}
+  m_Layer: 0
+  m_Name: BulletEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2123420935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123420934}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.98, y: 0.08, z: 18.12}
+  m_LocalScale: {x: 6.640025, y: 5.291784, z: 6.3095975}
+  m_Children: []
+  m_Father: {fileID: 535732624}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
