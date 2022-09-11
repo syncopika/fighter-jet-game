@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -283, y: 123}
+  m_AnchoredPosition: {x: -283, y: 143.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89036708
@@ -644,8 +644,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: -8.000008}
-  m_SizeDelta: {x: 300, y: 180}
+  m_AnchoredPosition: {x: -214, y: -16.8}
+  m_SizeDelta: {x: 300, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648803592
 MonoBehaviour:
@@ -682,7 +682,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "W - move forward\n\nA/D - turn left/right\n\nQ/E - roll left/right\n\nArrow
     up/down - pitch up/down \n\nS - change wing configuration (e.g. swept)\n\nF -
-    fire missile\n\nB - drop bomb"
+    fire missile\n\nB - drop bomb\n\nspace - fire bullets\n\nhold shift - change
+    camera view"
 --- !u!222 &648803593
 CanvasRenderer:
   m_ObjectHideFlags: 0

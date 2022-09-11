@@ -20,6 +20,8 @@ public class PlaneController : MonoBehaviour
     public GameObject missile1;
     public GameObject missile2;
     public GameObject bomb1;
+    public GameObject bulletEmitter;
+    public GameObject bulletPrefab;
 
     public bool isDeadYet()
     {
@@ -47,6 +49,15 @@ public class PlaneController : MonoBehaviour
     {
         // TODO - explosion effects? display game over message?
         isDead = true;
+    }
+
+    void fireBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = bulletEmitter.transform.position;
+        bullet.transform.rotation = bulletEmitter.transform.rotation;
+
+        bullet.GetComponent<Rigidbody>().AddForce(bulletEmitter.transform.forward * 70f, ForceMode.Impulse);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -115,7 +126,7 @@ public class PlaneController : MonoBehaviour
             if(sweptWing)
             {
                 // go down to 0 -> open wing config
-                blendOneVal -= 0.1f;
+                blendOneVal -= 0.3f;
                 if(blendOneVal <= 0)
                 {
                     blendOneVal = 0;
@@ -125,7 +136,7 @@ public class PlaneController : MonoBehaviour
             else
             {
                 // swept-wing config
-                blendOneVal += 0.1f;
+                blendOneVal += 0.3f;
 
                 if(blendOneVal >= 100)
                 {
@@ -188,6 +199,11 @@ public class PlaneController : MonoBehaviour
                 bomb1.GetComponent<BombController>().fire();
                 bomb1 = null;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            fireBullet();
         }
 
         if (Input.GetKeyUp(KeyCode.W) || !isFlying)

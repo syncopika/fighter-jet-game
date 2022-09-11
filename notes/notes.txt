@@ -22,3 +22,11 @@ https://stackoverflow.com/questions/32306704/how-to-pass-data-and-references-bet
 
 
 - make sure "pixel perfect" checkbox is checked for Canvas elements to make UI text crisp
+
+
+TODO:
+- implement collision with enemy fighters
+- improve bullet prefab by making it tracer-like? use shaders for that?
+- prevent bullet and bomb rigidbodies from interacting with the plane rigidbody when they're launched (e.g. the plane seems to bounce a bit on bullet/bomb launch)
+ - maybe helpful? https://forum.unity.com/threads/how-to-disable-push-force-between-two-rigidbodies.486138/
+- investigate why disabled particle system still slightly visible for webgl export? e.g. https://forum.unity.com/threads/particles-are-not-visible-on-the-web-version.465120/ ?
